@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <Button
@@ -200,6 +201,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:background="#FFFFFF"
+        android:onClick="onClickBotaoPonto"
         android:text="."
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/btn_0"
@@ -207,18 +209,39 @@
 
     <Button
         android:id="@+id/btn_c"
-        android:layout_width="120dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
         android:background="#F44336"
         android:onClick="onClickBtnC"
         android:text="C"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_9"
         app:layout_constraintTop_toBottomOf="@+id/tv_display" />
+
+    <Button
+        android:id="@+id/btn_divisao"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:onClick="onClickBotaoDivisao"
+        android:text="/"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_6"
+        app:layout_constraintTop_toBottomOf="@+id/btn_c" />
+
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
+        android:src="@drawable/ic_baseline_backspace_24"
+        android:drawableTint="#00000000"
+        tools:layout_editor_absoluteX="235dp"
+        tools:layout_editor_absoluteY="439dp" />
 
     <TextView
         android:id="@+id/tv_display"
@@ -234,18 +257,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_divisao"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:background="#FFFFFF"
-        android:onClick="onClickBotaoDivisao"
-        android:text="/"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/btn_6"
-        app:layout_constraintTop_toBottomOf="@+id/btn_c" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
