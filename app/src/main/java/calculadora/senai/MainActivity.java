@@ -125,10 +125,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void verificarOperacao(String operacao){
          if(!primeiroNumero.isEmpty()){
-        this.operacao = operacao;
-        atualizarDisplay( this.operacao);
-        }else{
-        Toast.makeText(MainActivity.this, "Informe um número antes de solicitar uma operação.", Toast.LENGTH_LONG).show();
+             if (this.operacao.isEmpty()){
+                 this.operacao = operacao;
+                 atualizarDisplay( this.operacao);
+             }
+         }else{
+            Toast.makeText(MainActivity.this, "Informe um número antes de solicitar uma operação.", Toast.LENGTH_LONG).show();
         }
     }
 
