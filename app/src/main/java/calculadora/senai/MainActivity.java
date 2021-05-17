@@ -28,14 +28,24 @@ public class MainActivity extends AppCompatActivity {
         if (primeiroNumero.isEmpty()){
             atualizarNumeroDigitado("0.");
             atualizarDisplay( "0.");
+
         }else if (!operacao.isEmpty() && segundoNumero.isEmpty()){
             atualizarNumeroDigitado("0.");
             atualizarDisplay( "0.");
-        } else{
+        } else {
+            if (primeiroNumero.contains(".") && segundoNumero.isEmpty()) {
+                return;
+            } else if(segundoNumero.contains(".")) {
+                return;
+            }
+
             atualizarNumeroDigitado(".");
-            atualizarDisplay( ".");
+            atualizarDisplay(".");
         }
+
+
     }
+
     public void onClickBotao0(View v){
         atualizarNumeroDigitado("0");
         atualizarDisplay( "0");
@@ -147,6 +157,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void verificarOperacao(String operacao){
          if(!primeiroNumero.isEmpty()){
+             if(primeiroNumero.endsWith(".")) {
+                 atualizarNumeroDigitado("0");
+                 atualizarDisplay("0");
+             }
              if (this.operacao.isEmpty()){
                  this.operacao = operacao;
                  atualizarDisplay( this.operacao);
