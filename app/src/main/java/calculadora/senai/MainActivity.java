@@ -25,8 +25,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickBotaoPonto(View v){
-        atualizarNumeroDigitado(".");
-        atualizarDisplay( ".");
+        if (primeiroNumero.isEmpty()){
+            atualizarNumeroDigitado("0.");
+            atualizarDisplay( "0.");
+        }else if (!operacao.isEmpty() && segundoNumero.isEmpty()){
+            atualizarNumeroDigitado("0.");
+            atualizarDisplay( "0.");
+        } else{
+            atualizarNumeroDigitado(".");
+            atualizarDisplay( ".");
+        }
     }
     public void onClickBotao0(View v){
         atualizarNumeroDigitado("0");
@@ -81,27 +89,43 @@ public class MainActivity extends AppCompatActivity {
         verificarOperacao("*");
     }
     public void onClickBotaoIgual(View v) {
+        if (operacao.isEmpty()){
+            Toast.makeText(MainActivity.this, "Nenhuma operação foi solicitada.", Toast.LENGTH_LONG).show();
+        }
         if (!primeiroNumero.isEmpty() && !segundoNumero.isEmpty()) {
-            int numero1 = Integer.parseInt(primeiroNumero);
-            int numero2 = Integer.parseInt(segundoNumero);
+            double numero1 = Double.parseDouble(primeiroNumero);
+            double numero2 = Double.parseDouble(segundoNumero);
+
             if (operacao.equals("+")) {
-                int resultado = numero1 + numero2;
+                double resultado = numero1 + numero2;
                 display.setText(String.valueOf(resultado));
             } else if (operacao.equals("-")) {
-                int resultado = numero1 - numero2;
+                double resultado = numero1 - numero2;
                 display.setText(String.valueOf(resultado));
             } else if (operacao.equals("/")) {
-                int resultado = numero1 / numero2;
+                double resultado = numero1 / numero2;
                 display.setText(String.valueOf(resultado));
             } else if (operacao.equals("*")) {
-                int resultado = numero1 * numero2;
+                double resultado = numero1 * numero2;
                 display.setText(String.valueOf(resultado));
-            } else {
-                Toast.makeText(MainActivity.this, "Nenhuma operação foi solicitada.", Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    public void onClickBackspace(View v){
+        if (!segundoNumero.isEmpty()){
+            segundoNumero = segundoNumero.substring(0, segundoNumero.length()-1);
+        }else if(!operacao.isEmpty()) {
+            operacao = operacao.substring(0, operacao.length() - 1);
+        }
+        else if(!primeiroNumero.isEmpty()){
+            primeiroNumero = primeiroNumero.substring(0, primeiroNumero.length()-1);}
+        display.setText("");
+        atualizarDisplay(primeiroNumero+""+ operacao+""+ segundoNumero);
+
 
     }
+
     public void onClickBtnC(View v){
         display.setText("");
         primeiroNumero = "";

@@ -151,7 +151,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/backspace" />
 
     <Button
         android:id="@+id/btn_0"
@@ -225,10 +225,10 @@
         android:onClick="onClickBotaoPonto"
         android:text="."
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/backspace"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn_0"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintTop_toTopOf="@+id/backspace" />
 
     <Button
         android:id="@+id/btn_c"
@@ -263,12 +263,13 @@
         app:layout_constraintStart_toEndOf="@+id/btn_c" />
 
     <ImageButton
-        android:id="@+id/button"
+        android:id="@+id/backspace"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginEnd="2dp"
         android:backgroundTint="#FFFFFF"
         android:drawableTint="#00000000"
+        android:onClick="onClickBackspace"
         android:src="@drawable/ic_baseline_backspace_24"
         app:layout_constraintEnd_toStartOf="@+id/btn_igual"
         app:layout_constraintHorizontal_bias="0.5"
