@@ -122,8 +122,6 @@ public class MainActivity extends AppCompatActivity {
             primeiroNumero = primeiroNumero.substring(0, primeiroNumero.length()-1);}
         display.setText("");
         atualizarDisplay(primeiroNumero+""+ operacao+""+ segundoNumero);
-
-
     }
 
     public void onClickBtnC(View v){
